@@ -1,0 +1,26 @@
+version: "3"
+services:
+  sauce-connect:
+    image: "saucelabs/sauce-connect"
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_READYFILE: "/tmp/sc.ready"
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "-i composed-docker-sc -r eu-central"
+
+  sauce-connect2:
+    image: "saucelabs/sauce-connect"
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_READYFILE: "/tmp/sc.ready"
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "-i composed-docker-sc -r us-west"
+  
+  app-server:
+    image: "simple-server"
+    container_name: "apistub"
+    ports:
+      - "3333:1080"
+    
