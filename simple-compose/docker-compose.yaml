@@ -1,7 +1,7 @@
 version: "3"
 services:
   sauce-connect:
-    image: "saucelabs/sauce-connect"
+    image: "saucelabs/sauce-connect:latest"
     container_name: "sc-eu-central"
     environment:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
@@ -10,7 +10,7 @@ services:
     command: "-i composed-docker-sc -r eu-central"
 
   sauce-connect2:
-    image: "saucelabs/sauce-connect"
+    image: "saucelabs/sauce-connect:latest"
     container_name: "sc-us-west"
     environment:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
