@@ -1,0 +1,27 @@
+version: "3"
+services:
+  sauce-connect:
+    restart: on-failure:2
+    image: "saucelabs/sauce-connect:latest"
+    container_name: "persistent-proxy1-volume"
+    volumes: 
+      - sc-logs:/tmp
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+      SAUCE_LOGFILE: /tmp/persistent-eu-proxy1.log
+    command: "-i persistent1-docker-sc -r eu-central -v"
+
+  sauce-connect-stdout:
+    restart: on-failure:2
+    image: "saucelabs/sauce-connect:latest"
+    container_name: "persistent-proxy2-stdout"
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "-i persistent1-docker-sc -r eu-central -l - -v"
+
+volumes:
+  sc-logs:

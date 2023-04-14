@@ -1,0 +1,2 @@
+# persistent-compose aka Cockroach Proxies
+If you need a Sauce Connect Proxy to stay up indefinitely, only going down to restart and release resources, then this is for you. Some organizations, large or small, need this uptime 
