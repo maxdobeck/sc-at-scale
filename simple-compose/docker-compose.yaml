@@ -1,25 +1,15 @@
 version: "3"
 services:
-  sauce-connect:
+  sauce-connect-eu:
     image: "saucelabs/sauce-connect:latest"
-    container_name: "sc-eu-central"
     environment:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
       SAUCE_OUTPUT_FORMAT: "text"
     command: "-i composed-docker-sc -r eu-central"
-
-  sauce-connect2:
-    image: "saucelabs/sauce-connect:latest"
-    container_name: "sc-us-west"
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i composed-docker-sc -r us-west"
-  
+    
   app-server:
-    image: "simple-server"
-    container_name: "simpleserver"
+    image: "mock-server"
+    container_name: "mockserver"
     ports:
       - "3333:1080"
