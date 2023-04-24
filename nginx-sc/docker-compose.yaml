@@ -1,0 +1,15 @@
+version: "3"
+services:
+  sauce-connect-eu:
+    image: "saucelabs/sauce-connect:latest"
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "-i composed-docker-sc -r eu-central"
+    
+  nginx:
+    image: "nginx:latest"
+    container_name: "lets-pretend-this-is-an-application"
+    ports:
+      - "8080:80"
