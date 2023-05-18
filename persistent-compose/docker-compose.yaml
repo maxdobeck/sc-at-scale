@@ -1,38 +1,33 @@
-version: "3"
+version: "3.9"
 services:
-  sauce-connect-volume:
-    restart: on-failure:2
+  sauce-connect-eu:
+    deploy:
+      replicas: 2
+      restart_policy:
+        delay: 30s
+        max_attempts: 5
+        condition: on-failure
+        window: 60s
     image: "saucelabs/sauce-connect:latest"
-    container_name: "persistent-proxy1-volume"
-    volumes: 
-      - sc-logs:/tmp
     environment:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
       SAUCE_OUTPUT_FORMAT: "text"
       SAUCE_LOGFILE: /tmp/persistent-eu-proxy1.log
-    command: "-i persistent1-docker-sc -r eu-central -v"
+    command: "-i eu-pool -r eu-central --tunnel-pool"
 
   sauce-connect-us:
     image: "saucelabs/sauce-connect:latest"
     restart: on-failure:2
     deploy:
-      replicas: 4
+      replicas: 2
+      restart_policy:
+        delay: 30s
+        max_attempts: 5
+        condition: on-failure
+        window: 60s
     environment:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
       SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i composed-docker-sc -r us-west"
-
-  sauce-connect-stdout:
-    restart: on-failure:2
-    image: "saucelabs/sauce-connect:latest"
-    container_name: "persistent-proxy2-stdout"
-    environment:
-      SAUCE_USERNAME: ${SAUCE_USERNAME}
-      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
-      SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i persistent1-docker-sc -r eu-central -l - -v"
-
-volumes:
-  sc-logs:
+    command: "-i us-pool -i docker-sc -r us-west --tunnel-pool"
