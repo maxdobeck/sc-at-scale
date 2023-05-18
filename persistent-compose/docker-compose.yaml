@@ -13,7 +13,7 @@ services:
       SAUCE_LOGFILE: /tmp/persistent-eu-proxy1.log
     command: "-i persistent1-docker-sc -r eu-central -v"
 
-    sauce-connect-us:
+  sauce-connect-us:
     image: "saucelabs/sauce-connect:latest"
     restart: on-failure:2
     deploy:

@@ -8,8 +8,8 @@ services:
       SAUCE_OUTPUT_FORMAT: "text"
     command: "-i composed-docker-sc -r eu-central"
     
-  app-server:
-    image: "mock-server"
-    container_name: "mockserver"
+  nginx:
+    image: "nginx:latest"
+    container_name: "some-app"
     ports:
-      - "3333:1080"
+      - "3333:80"
