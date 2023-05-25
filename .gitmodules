@@ -1,0 +1,3 @@
+[submodule "sample-app-web/app"]
+	path = sample-app-web/app
+	url = git@github.com:saucelabs/sample-app-web.git
