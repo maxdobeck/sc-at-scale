@@ -1,0 +1,22 @@
+version: "3"
+services:
+  sauce-connect-eu:
+    image: "saucelabs/sauce-connect:4.9.0"
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "-i demo-web-app-docker-sc -r eu-central"
+  sauce-connect-us:
+    image: "saucelabs/sauce-connect:4.9.0"
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "-i demo-web-app-docker-sc -r us-west-1"
+    
+  sauce-sample-app-web:
+    image: "web-app"
+    container_name: "web-app"
+    ports:
+      - "3000:3000"
