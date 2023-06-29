@@ -1,0 +1,23 @@
+version: "3"
+services:
+  sauce-connect-eu:
+    image: "saucelabs/sauce-connect:latest"
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "-i pdf-compose -r eu-central -v"
+
+  sauce-connect-us:
+    image: "saucelabs/sauce-connect:latest"
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "-i pdf-compose -r us-west -v"
+
+  simple-server:
+    image: "simple-server"
+    container_name: "mockserver"
+    ports:
+      - "1080:1080"
