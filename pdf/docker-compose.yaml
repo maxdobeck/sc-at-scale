@@ -18,6 +18,6 @@ services:
 
   simple-server:
     image: "simple-server"
-    container_name: "mockserver"
+    container_name: "simpleserver"
     ports:
       - "1080:1080"
