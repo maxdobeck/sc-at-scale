@@ -1,14 +1,14 @@
 version: "3"
 services:
   sauce-connect-eu:
-    image: "saucelabs/sauce-connect:4.9.0"
+    image: "saucelabs/sauce-connect:latest"
     environment:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
       SAUCE_OUTPUT_FORMAT: "text"
     command: "-i demo-web-app-docker-sc -r eu-central"
   sauce-connect-us:
-    image: "saucelabs/sauce-connect:4.9.0"
+    image: "saucelabs/sauce-connect:latest"
     environment:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
