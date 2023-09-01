@@ -1,5 +1,5 @@
 # Get an arbitrary file onto a real device 
-In this example we download a file (PDF) from the native web browser onto the device's disk. The file type and server hosting the file are placeholders, you can use whatever is needed. In fact you can skip docker altogether as long as Sauce Connect can reach the file you're targeting.
+In this example we download a file (PDF) from the native web browser onto the device's disk. The file type and server hosting the file are placeholders, you can use whatever is needed. In fact you can skip docker altogether as long as Sauce Connect can reach the file server you're targeting.
 
 1. docker compose up
 2. the services are started
