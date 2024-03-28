@@ -6,7 +6,7 @@ services:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
       SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i composed-docker-sc -r eu-central"
+    command: "run -i composed-docker-sc -r eu-central"
     
   nginx:
     image: "nginx:latest"
