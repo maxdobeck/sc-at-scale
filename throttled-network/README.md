@@ -1,6 +1,10 @@
 # Throttled Network
 Throttling/degrading network on a container.
 
+What is this? This squishes two things into a docker container. You can use this as a template for putting 1+ things in a container alongside Sauce Connect, but per the Docker manifesto/ethos you should have 1:1 for 1 service living in 1 container. 
+
+However sometimes this is easier. So in this example we are using TC `traffic control` to mess with Sauce Connect's ability to perform. See the various settings like Packet Loss below.
+
 ## Running
 Build `docker build -t="throttler"  .`
 
