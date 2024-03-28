@@ -1,0 +1,18 @@
+version: "3"
+services:
+  sauce-connect-shared:
+    image: "saucelabs/sauce-connect:latest"
+    environment:
+      SAUCE_USERNAME: ${SUPPORT_SUB_ACCOUNT}
+      SAUCE_ACCESS_KEY: ${SUPPORT_SUB_ACCOUNT_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "run -i shared-tunnel -r us-west --shared all"
+
+  sauce-connect-private:
+    image: "saucelabs/sauce-connect:latest"
+    environment:
+      SAUCE_USERNAME: ${SUPPORT_SUB_ACCOUNT}
+      SAUCE_ACCESS_KEY: ${SUPPORT_SUB_ACCOUNT_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+    command: "run -i private-tunnel -r us-west"
+    
