@@ -6,7 +6,7 @@ services:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
       SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i pdf-compose -r eu-central -v"
+    command: "run -i pdf-compose -r eu-central"
 
   sauce-connect-us:
     image: "saucelabs/sauce-connect:latest"
@@ -14,7 +14,7 @@ services:
       SAUCE_USERNAME: ${SAUCE_USERNAME}
       SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
       SAUCE_OUTPUT_FORMAT: "text"
-    command: "-i pdf-compose -r us-west -v"
+    command: "run -i pdf-compose -r us-west"
 
   simple-server:
     image: "simple-server"
