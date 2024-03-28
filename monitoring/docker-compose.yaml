@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  eu-minimal:
+    deploy:
+      replicas: 1
+      restart_policy:
+        delay: 30s
+        max_attempts: 3
+        condition: on-failure
+        window: 60s
+    image: "saucelabs/sauce-connect:latest"
+    ports: 
+      - "8081:8081"
+    environment:
+      SAUCE_USERNAME: ${SAUCE_USERNAME}
+      SAUCE_ACCESS_KEY: ${SAUCE_ACCESS_KEY}
+      SAUCE_OUTPUT_FORMAT: "text"
+      SAUCE_LOGFILE: /tmp/persistent-eu-proxy1.log
+    command: "run -i eu-min-monitoring -r eu-central --tunnel-pool --api-address :8081"
